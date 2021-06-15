@@ -1,0 +1,929 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="MkDocs Material Boilerplate (Starter Kit) - Deploy documentation to hosting platforms (Netlify, GitHub Pages, GitLab Pages, and AWS Amplify Console) with Docker, pipenv, and GitHub Actions.">
+      
+      
+      
+        <meta name="author" content="peaceiris">
+      
+      
+        <link rel="canonical" href="https://mkdocs.peaceiris.com/">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
+    
+    
+      
+        <title>Komputasi Numerik</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.875de78c.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
+    
+    
+      <link rel="stylesheet" href="assets/css/custom.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#integrasi_numerik" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Komputasi Numerik" class="md-header__button md-logo" aria-label="Komputasi Numerik" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Komputasi Numerik
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Integrasi Numerik
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/peaceiris/mkdocs-material-boilerplate/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Komputasi Numerik" class="md-nav__button md-logo" aria-label="Komputasi Numerik" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Komputasi Numerik
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/peaceiris/mkdocs-material-boilerplate/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Integrasi Numerik
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        Integrasi Numerik
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1_newton-cotes" class="md-nav__link">
+    1. Newton-Cotes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_metode_trapesium" class="md-nav__link">
+    2. Metode Trapesium
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refrensi" class="md-nav__link">
+    Refrensi
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Solusi Numerik Pada Aljabar Linear
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Solusi Numerik Pada Aljabar Linear" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Solusi Numerik Pada Aljabar Linear
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Solusi%20Numerik%20Pada%20Aljabar%20Linear/Pengertian/" class="md-nav__link">
+        Pengertian Aljabar Linear
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Solusi%20Numerik%20Pada%20Aljabar%20Linear/Gauss/" class="md-nav__link">
+        Metode Eliminasi Gauss
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Solusi%20Numerik%20Pada%20Aljabar%20Linear/Jacobi/" class="md-nav__link">
+        Metode Jacobi
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Solusi Numerik Pada Persamaan Diffrensial
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Solusi Numerik Pada Persamaan Diffrensial" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Solusi Numerik Pada Persamaan Diffrensial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Solusi%20Numerik%20Pada%20Persamaan%20Diffrensial/Pengertian_Differensial/" class="md-nav__link">
+        Pengertian Persamaan Diffrensial
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2">
+        Persamaan Differensial Biasa
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Persamaan Differensial Biasa" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Persamaan Differensial Biasa
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Solusi%20Numerik%20Pada%20Persamaan%20Diffrensial/Pengertian_Biasa/" class="md-nav__link">
+        Pengertian
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Solusi%20Numerik%20Pada%20Persamaan%20Diffrensial/Euler/" class="md-nav__link">
+        Metode Euler 
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1_newton-cotes" class="md-nav__link">
+    1. Newton-Cotes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_metode_trapesium" class="md-nav__link">
+    2. Metode Trapesium
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refrensi" class="md-nav__link">
+    Refrensi
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/peaceiris/mkdocs-material-boilerplate/edit/master/docs_sample/index.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="integrasi_numerik"><strong>Integrasi Numerik</strong><a class="headerlink" href="#integrasi_numerik" title="Permanent link">&para;</a></h1>
+<p>​               Integrasi Numerik, mengambil peranan yang sangat penting dalam masalah sains dan teknik. Mengingat dalam bidang sains, sering ditemukan ungkapan-ungkapan integral dan diferensial maupun kalimat-kalimat matematis yang tidak mudah dimengerti dan bahkan bisa diselesaikan dengan cara analitik. Selain hal itu, kadang-kadang fungsi yang integralkan tidak berbentuk analitis, melainkan berupa titik-titik data. Beberapa hal ini sering muncul dalam banyak aplikasi teknik. Oleh sebab itu, adanya Integrasi Numerik ini diharapkan mampu membantu ketika permasalahan dipecahkan dengan analitik sudah buntu<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. </p>
+<p>​               Dalam bahasan integrasi numerik kali ini, ada banyak jenis-jenis integrasi numerik salah satunya ialah :</p>
+<ol>
+<li>Newton-Cotes</li>
+<li>Metode Trapesium</li>
+</ol>
+<p>Dalam pembahasan Integral Numerik kali ini, memang tidak mencantumkan semua metode yang ada pada integrasi numerik, namun pembahasan jenis-jenis integrasi numerik ini sudah lumrah dilakukan dan mungkin lebih mudah untuk dipahami<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<h4 id="1_newton-cotes">1. Newton-Cotes<a class="headerlink" href="#1_newton-cotes" title="Permanent link">&para;</a></h4>
+<p>​                   Newton-Cotes merupakan perhitungan integrasi numerik yang paling umum dan dilakukan. Newton-Cotes secara umum pengertiannya merupakan metode integrasi yang dilakukan dengan cara membagi area dibawah kurva suatu fungsi menjadi beberapa panel dengan terlebih dahulu menetapkan batas atas dan batas bawah interval. Integral atau luas area di bawah kurva ditentukan berdasarkan jumlah luas panel yang digunakan untuk mendekati luas area di bawah kurva<sup id="fnref3:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. </p>
+<p>​                   Dalam Newton-Cotes, tedapat banyak metode, salah satunya ialah <strong><em>Metode Integral Riemann</em></strong>. Metode Integral Riemann ini dilakukan dengan membagi interval di bawah suatu kurva fungsi matematik sebanyak  m subinterval sama besar. Pada setiap subinterval, dibentuk persegi panjang setinggi kurva pada setiap titik tengah persegi panjang tersebut. Lalu, area pada setiap interval diperoleh dengan cara mengalikan panjang dan lebar pada masing-masing persegi panjang. Jumlah dari panjang dan lebar dari masing-masing persegi panjang tersebut digunakan untuk menaksir interval integral suatu fungsi dengan interval tertentu<sup id="fnref4:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<p>​                   Fungsi proses integrasi menggunakan metode titik tengah dituliskan dalam persamaan berikut :
+<script type="math/tex; mode=display">
+\int ^{a}_{b}f\left( x\right) dx\approx \sum ^{m}_{i=1}F\left( i\dfrac{|b-a|}{m}-\dfrac{\left| b-a\right| }{2m}\right) \dfrac{\left| b-a\right| }{m}
+</script>
+dimana <em>b</em> dan <em>a</em> merupakan masing-masing batas atas dan bawah interval kurva yang hendak dihitung integralnya. dalam persamaan pertama, galat atau error bisa dihitung melalui persamaan berikut :<sup id="fnref5:1"><a class="footnote-ref" href="#fn:1">1</a></sup>
+<script type="math/tex; mode=display">
+\int ^{a}_{b}h\left( x\right) dx=-\dfrac{\left( b-a\right) ^{3}}{24m^{2}}f^{\left( 2\right) }\left( \varepsilon \right)
+</script>
+dari persamaan error diatas, e disini merupakan nilai antara <em>a</em> dan <em>b</em>.<sup id="fnref6:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p><strong>Contoh Soal</strong></p>
+<p>Hitunglah integral fungsi di bawah ini menggunakan metode integral Reimann dengan interval 0 sampai 1 dengan jumlah panel 2 dan 4<sup id="fnref7:1"><a class="footnote-ref" href="#fn:1">1</a></sup>!
+<script type="math/tex; mode=display">
+\int ^{1}_{0}x^{2}dx
+</script>
+<strong>Jawaban</strong></p>
+<p>Persamaan pada contoh diatas, bisa diselesaikan dengan cara analitik, dengan cara sebagai berikut :<sup id="fnref8:1"><a class="footnote-ref" href="#fn:1">1</a></sup>
+<script type="math/tex; mode=display">
+\int ^{1}_{0}x^{2}dx=\left[ \dfrac{x^{3}}{3}\right] _{0}^{1}=\dfrac{1^{3}}{3}-\dfrac{0^{3}}{3}=0.333\ldots
+</script>
+  Penyelesaian dengan cara numerik menggunakan metode titik tengah dengan jumlah panel 2 dapat dilakukan dengan cara,pertama ialah menentukan lokasi titik tengah kedua panel. Dan, berdasarkan interval fungsi dapat ditentukan titik tengah kedua panel berada pada <script type="math/tex">x = 0,25</script> dan <script type="math/tex">x = 0,75</script>, maka (perhitungan dapat dilakukan seperti berikut<sup id="fnref9:1"><a class="footnote-ref" href="#fn:1">1</a></sup> :
+<script type="math/tex; mode=display">
+\int ^{1}_{0}x^{2}dx\approx \left( f\left( 0,25\right) +f\left( 0175\right) \right) \dfrac{1-0}{2}= \dfrac{0,25^{2}+0,75^{2}}{2}= 0,3125
+</script>
+Agar lebih mendekati ke nilai yang akurat, maka jumlah panel ditingkatkan. Untuk jumlah panel 4, titik tengah berada pada <script type="math/tex">x = {0,125;0,375;0,625;0,875}</script>
+<sup id="fnref10:1"><a class="footnote-ref" href="#fn:1">1</a></sup>
+<script type="math/tex; mode=display">
+\int ^{1}_{0}x^{2}dx\approx ( f\left( 0,125\right) + f\left( 0,375\right) + f\left( 0,625\right) + f\left( 0,875\right)) = \dfrac{1-0}{4} = 0,328125 
+</script>
+Gambar grafik proses integrasi dengan metode Riemann dapat dilihat sesuai dengan gambar berikut : <sup id="fnref11:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p><img alt="" src="https://MohSyarif190005.github.io/Image/Metode Riemann.png" /></p>
+<p><strong>Algoritma Program</strong> </p>
+<p>Dalam pemecahan dengan cara numerik menggunakan Metode Integral Riemann, bisa menggunakan aplikasi yang ada dengan bahasa python. Berikut Source Code lengkapnya :</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">#Membuat Fungsi untuk f(x) dan fungsi turunan f(x)</span>
+
+<span class="k">def</span> <span class="nf">fx</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+
+<span class="c1">#Turunan f(x)</span>
+<span class="k">def</span> <span class="nf">fx_turunan</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span>
+
+<span class="c1">#inputan</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan nilai Batas bawah : &quot;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan nilai Batas atas : &quot;</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan nilai n : &quot;</span><span class="p">)</span> <span class="c1">#Nilai n merupakan nilai yang dibatasi berapa iterasi yang diinginkan</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">n</span> <span class="c1">#Persamaan metode titik tengah atau Riemann</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">a</span>
+
+<span class="n">jum_luas</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;f(x)&quot;</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="n">x</span><span class="o">&lt;</span><span class="n">b</span><span class="o">+</span><span class="n">h</span> <span class="p">:</span>
+    <span class="n">l</span><span class="o">=</span><span class="n">h</span><span class="o">*</span><span class="n">fx</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="n">h</span>
+    <span class="n">x</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">jum_luas</span><span class="o">=</span><span class="n">jum_luas</span><span class="o">+</span><span class="n">l</span>
+
+
+<span class="n">jum_eksak</span><span class="o">=</span><span class="n">fx_turunan</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">-</span><span class="n">fx_turunan</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">error</span><span class="o">=</span><span class="nb">abs</span><span class="p">(</span><span class="n">jum_luas</span><span class="o">-</span><span class="n">jum_eksak</span><span class="p">)</span>
+
+<span class="c1">#Mencetak</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Hasil Jumlah Eksak : &quot;</span><span class="p">,</span> <span class="n">jum_eksak</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Hasil integral Riemann : &quot;</span><span class="p">,</span> <span class="n">jum_luas</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Error : &quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Hasil Running Program : </p>
+<div class="codehilite"><pre><span></span><code>Masukkan nilai Batas bawah : 0
+Masukkan nilai Batas atas : 1
+Masukkan nilai n : 10
+x f(x)
+0.0 0.0
+0.1 0.0010000000000000002
+0.2 0.004000000000000001
+0.3 0.009
+0.4 0.016000000000000004
+0.5 0.025
+0.6 0.036
+0.7 0.048999999999999995
+0.8 0.06400000000000002
+0.9 0.08100000000000002
+1.0 0.1
+Hasil Jumlah Eksak :  0.3333333333333333
+Hasil integral Riemann :  0.385
+Error :  0.051666666666666694
+</code></pre></div>
+
+<p><strong>Penjelasan Source Code Program</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1">#Membuat Fungsi untuk f(x) dan fungsi turunan f(x)</span>
+
+<span class="k">def</span> <span class="nf">fx</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+
+<span class="c1">#Turunan f(x)</span>
+<span class="k">def</span> <span class="nf">fx_turunan</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span>
+</code></pre></div>
+
+<p>Pertama, membuat 2 fungsi dimana fungsi pertama mengandung fungsi integral <script type="math/tex">f(x) = x^{2}</script> dan fungsi yang kedua ialah turunan dari integral <script type="math/tex">f(x) = x^2</script> ialah <script type="math/tex">f^{l}\left( x\right) =\dfrac{x^{3}}{3}</script>
+</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">#inputan</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan nilai Batas bawah : &quot;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan nilai Batas atas : &quot;</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan nilai n : &quot;</span><span class="p">)</span> <span class="c1">#Nilai n merupakan nilai yang dibatasi berapa iterasi yang diinginkan</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Kedua, membuat variabel inputan untuk nilai batas atas, bawah dan n. n merupakan berapa iterasi yang diinginkan oleh si pengguna program. Lalu, tipe data untuk nilai batas atas, batas bawah dan iterasi ialah bertipe float.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">n</span> <span class="c1">#Persamaan metode titik tengah atau Riemann</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">a</span>
+</code></pre></div>
+
+<p>Ketiga, untuk variable h ialah berisi proses integrasi menggunakan metode titik tengah dan nilai variable x ialah nilai dari variable a.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">jum_luas</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;f(x)&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Keempat, variable jum_luas mempunyai nilai 0 dan print, untuk mencetak tampilan <script type="math/tex">x</script> dan <script type="math/tex">f(x)</script>. <script type="math/tex">x</script> merupakan nilai banyaknya iterasi yang dilakukan, dengan satuan float. Jadi jika hanya 4 iterasi, maka akan mencetak satuan 1/4 dari iterasi. dan <script type="math/tex">f(x)</script> merupakan nilai dari hasil iterasi.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">while</span> <span class="n">x</span><span class="o">&lt;</span><span class="n">b</span><span class="o">+</span><span class="n">h</span> <span class="p">:</span>
+    <span class="n">l</span><span class="o">=</span><span class="n">h</span><span class="o">*</span><span class="n">fx</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="n">h</span>
+    <span class="n">x</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">jum_luas</span><span class="o">=</span><span class="n">jum_luas</span><span class="o">+</span><span class="n">l</span>
+
+
+<span class="n">jum_eksak</span><span class="o">=</span><span class="n">fx_turunan</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">-</span><span class="n">fx_turunan</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">error</span><span class="o">=</span><span class="nb">abs</span><span class="p">(</span><span class="n">jum_luas</span><span class="o">-</span><span class="n">jum_eksak</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Kelima, menggunakan perulangan while untuk melakukan iterasi. Dimana jika nilai <script type="math/tex">x</script> kurang dari nilai <script type="math/tex">b+h</script>, maka melakukan iterasi. Variable l berisi nilai <script type="math/tex">h</script> dan dikalikan dengan isi dari fungsi <script type="math/tex">f(x)</script>. Lalu mencetak nilai x dan nilai l. Variable x berisi nilai x ditambahkan dengan nilai <script type="math/tex">h</script>. Dan nilai x berisi round dari nilai <script type="math/tex">(x,2)</script>. Dan nilai jum_luas mempunyai nilai jum_luas ditambahkan dengan 1. Kemudian, diluar dari perulangan, variable jum_eksask berisi nilai dari fungsi fx_turunan(b)-fx_turunan(a). Dan yang terakhir variable error yang menampung nilai error dari iterasi yang dilakukan dengan rumus jum_luas-jum_eksak.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">#Mencetak</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Hasil Jumlah Eksak : &quot;</span><span class="p">,</span> <span class="n">jum_eksak</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Hasil integral Riemann : &quot;</span><span class="p">,</span> <span class="n">jum_luas</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Error : &quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Keenam dan yang terakhir, mencetak nilai dari jumlah eksak, nilai dari hasil itegrasi Riemann dan error yang dihasilkan saat melakukan integrasi.</p>
+<h4 id="2_metode_trapesium">2. Metode Trapesium<a class="headerlink" href="#2_metode_trapesium" title="Permanent link">&para;</a></h4>
+<p>Menurut rumus geometri, luas trapesium merupakan jumlah sisi yang sejajar dikali tinggi dibagi 2. Dengan kaitannya dengan grafik fungsi <script type="math/tex">f(x)</script> , dalam koordinat cartesius, yang diamsumsikan berada di atas sumbu x, maka didapat rumus metode integrasi trapesium (satu pias) untuk menyelesaikan permasalahan menggunakan metode analitik dan numerik ialah sebagai berikut<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> :
+<script type="math/tex; mode=display">
+I\approx \left( b-a\right) \dfrac{f\left( a\right) +f\left( b\right) }{2}
+</script>
+ Lalu, jika ingin dihitung pengintegrasian numerik dari sebuah fungsi yang berdejarat dua atau lebih, penggunaan metode trapesium akan memberikan kesalahan(yang bisa saja mendapatkan kesalahan yang lebih besar), sebagaimana yang ada pada pengimplementasian berikut<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup> : </p>
+<p><img alt="" src="https://MohSyarif190005.github.io/Image/Metode Trapesium.png" /></p>
+<p><strong>Contoh Soal</strong></p>
+<p>Hitunglah persamaan metode trapesium satu pias untuk menghitung, <script type="math/tex">I=\int ^{4}_{0}e^{x}dx</script>
+<sup id="fnref3:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p><u>Penyelesaian :</u></p>
+<p>Persamaan diatas dapat diselesaikan dengan cara analitik, sebagai berikut : <sup id="fnref4:2"><a class="footnote-ref" href="#fn:2">2</a></sup>
+<script type="math/tex; mode=display">
+I=\int ^{4}_{0}e^{x}dx=\left[ e^{x}\right] _{0}^{4}=\left[ e^{4}-e^{0}\right] =53,598150
+</script>
+Hitungan dengan menggunakan Numerik dengan menggunakan metode trapesium menghasilkan : <sup id="fnref5:2"><a class="footnote-ref" href="#fn:2">2</a></sup>
+<script type="math/tex; mode=display">
+I\approx \left( b-a\right) \dfrac{f\left( a\right) +f\left( b\right) }{2}=\left( 4-0\right) \dfrac{e^{0}+e^{4}}{2}=111,1963
+</script>
+ Kesalahan atau error relatif terhadap nilai eksak perhitungannya sebagai berikut :
+<script type="math/tex; mode=display">
+\varepsilon _{t}=\dfrac{53,598150-111,1963}{53,598150}\times 100\% = -107,46\%
+</script>
+Dari sini, bisa disimpulkan bahwa penggunaan metode trapesium dengan satu pias memberikan kesalahan atau error yang sangat besar bahkan bisa mencapai lebih dari 100%.  Maka dari itu, dilakukan beberapa perubahan dengan cara memperbanyak pias yang digunakan, yang artinya memperbanyak jumlah dari trapesium yang akan digunakan. Untuk mengestimasi luas daerah yang ingin dicari. Karena akan menggunakan banyak trapesium, maka integral total dapat dihitung dengan : <sup id="fnref6:2"><a class="footnote-ref" href="#fn:2">2</a></sup>
+<script type="math/tex; mode=display">
+I=\int ^{x_{1}}_{x_{0}}f\left( x\right) dx+\int ^{x_{2}}_{x_{1}}f\left( x\right) dx+\ldots +\int ^{x_{n}}_{x_{n}-1}f\left( x\right) dx
+</script>
+Jika lebar interval (yang berarti tinggi dari trapesium) dibuat sama, yaitu <script type="math/tex">\Delta x</script>, sebagaimana yang sesuai dengan gambar di bawah berikut ini : <sup id="fnref7:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p><img alt="" src="https://MohSyarif190005.github.io/Image/Metode Trapesium 2.png" /></p>
+<p>Maka, dapat disimpulkan bahwa integral total yang didapat adalah : <sup id="fnref8:2"><a class="footnote-ref" href="#fn:2">2</a></sup>
+<script type="math/tex; mode=display">
+I=\Delta x \times \dfrac{f\left( x_{1}\right) +f\left( x_{0}\right) }{2} + \Delta x \times \dfrac{f\left( x_{2}\right) +f\left( x_{1}\right) }{2} + . . .+ \Delta x \times \dfrac{f\left( x_{n}\right) +f\left( x_{n-1}\right) }{2}
+</script>
+atau bisa juga dapat dituliskan secara singkat seperti berikut :<sup id="fnref9:2"><a class="footnote-ref" href="#fn:2">2</a></sup>
+<script type="math/tex; mode=display">
+I=\dfrac{\Delta x}{2}\left[ f\left( x_{0}\right) +2\sum ^{n-1}_{i=1}f\left( x_{i}\right) +f\left( x_{n}\right) \right]
+</script>
+atau bisa juga seperti berikut : <sup id="fnref10:2"><a class="footnote-ref" href="#fn:2">2</a></sup>
+<script type="math/tex; mode=display">
+I=\dfrac{\Delta x}{2}\left[ f\left( x_{0}\right) +2\sum ^{n-1}_{i=1}f\left( x_{i}\right)  \right]
+</script>
+<strong>Contoh soal dengan empat pias</strong> </p>
+<p>Selesaikan persamaan berikut dengan menggunakan metode trapesium dengan empat pias, <script type="math/tex">I=\int ^{4}_{0}e^{x}dx</script>
+<sup id="fnref11:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p><u>Penyelesaian :</u></p>
+<ul>
+<li>
+<p>Karena digunakan metode trapesium dengan 4 pias, maka dari itu untuk menghitung lebar tiap pias ialah : <sup id="fnref15:2"><a class="footnote-ref" href="#fn:2">2</a></sup>
+  <script type="math/tex; mode=display">
+  \Delta x=\dfrac{b-a}{n}=\dfrac{4-0}{4}=1
+  </script>
+</p>
+</li>
+<li>
+<p>Luas daerah yang dicari untuk persamaan ini ialah : <sup id="fnref14:2"><a class="footnote-ref" href="#fn:2">2</a></sup>
+  <script type="math/tex; mode=display">
+  I=\dfrac{\Delta x}{2}\left[ f\left( x_{0}\right) +2\sum ^{n-1}_{i=1}f\left( x_{i}\right)  \right]
+  </script>
+</p>
+</li>
+</ul>
+<p>
+<script type="math/tex; mode=display">
+  I=\dfrac{1}{2}[ e^{0}+e^{4}+2(e^{1}+e^{2}+e^{3})] = 57,991950
+  </script>
+</p>
+<ul>
+<li>Kesalahan/error yang didapat terhadap nilai eksak :<sup id="fnref13:2"><a class="footnote-ref" href="#fn:2">2</a></sup>
+  <script type="math/tex; mode=display">
+  \varepsilon _{t}=\dfrac{53,598150-57,991950}{53,598150}\times 100\% = -8,2\%
+  </script>
+</li>
+</ul>
+<p>Maka dari itu, perbedaan dari contoh pertama dan contoh kedua cukup signifikan. Karena pada contoh pertama, hanya mempunyai satu pias dan mempunyai error sangat besar hingga melebihi 100%, sedangkan pada contoh kedua, persamaan yang sama dilanjutkan dengan diselesaikan dengan menggunakan empat pias, mempunyai galat atau error lebih kecil. Mengapa demikian, karena semakin banyak pias maka semakin banyak iterasi, maka error yang didapat semakin kecil. <sup id="fnref12:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p><strong>Algoritma Program</strong></p>
+<p>Dalam pemecahan dengan cara numerik menggunakan Metode Trapesium, bisa menggunakan aplikasi yang ada dengan bahasa python. Berikut Source Code lengkapnya :</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#Membuat fungsi untuk menyimpan data f(x)</span>
+<span class="k">def</span> <span class="nf">fungsi</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">return</span> <span class="n">e</span><span class="o">**</span><span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Persamaan&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;e^x&quot;</span><span class="p">)</span>
+<span class="n">hasil_analitik</span> <span class="o">=</span> <span class="mi">54</span> <span class="c1">#Hasil analitik harus bernilai int(bulat) </span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan nilai batas bawah : &quot;</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan nilai batas atas : &quot;</span><span class="p">))</span>
+
+<span class="n">iterasi_banyak</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan Banyak iterasi : &quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;iterasi&quot;</span><span class="p">,</span> <span class="s2">&quot;trapesium&quot;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s2">&quot;Error&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">iterasi</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">iterasi_banyak</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">iterasi</span>
+    <span class="n">h</span><span class="o">=</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
+
+    <span class="c1">#Metode Trapesium</span>
+    <span class="n">xi</span><span class="o">=</span><span class="n">a</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">xi</span><span class="o">=</span><span class="n">xi</span><span class="o">+</span><span class="n">h</span>
+        <span class="n">y</span><span class="o">+=</span><span class="n">fungsi</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
+    <span class="n">It</span><span class="o">=</span> <span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="o">*</span><span class="p">((</span><span class="n">fungsi</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">+</span><span class="n">fungsi</span><span class="p">(</span><span class="n">b</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">error</span><span class="o">=</span><span class="p">(</span><span class="n">hasil_analitik</span><span class="o">-</span><span class="n">It</span><span class="p">)</span><span class="o">/</span><span class="n">It</span> <span class="o">*</span> <span class="mi">100</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">iterasi</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%.8f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">It</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%.8f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">error</span><span class="p">)</span> 
+</code></pre></div>
+
+<p>Hasil Running Program :</p>
+<div class="codehilite"><pre><span></span><code>Persamaan
+e^x
+Masukkan nilai batas bawah : 0
+Masukkan nilai batas atas : 4
+Masukkan Banyak iterasi : 4
+iterasi trapesium        Error
+1       70.37626223      -23.26958226
+2       57.99194987      -6.88362760
+3       55.56871603      -2.82302011
+</code></pre></div>
+
+<p><strong>Penjelasan Program</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#Membuat fungsi untuk menyimpan data f(x)</span>
+<span class="k">def</span> <span class="nf">fungsi</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">return</span> <span class="n">e</span><span class="o">**</span><span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Persamaan&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;e^x&quot;</span><span class="p">)</span>
+<span class="n">hasil_analitik</span> <span class="o">=</span> <span class="mi">54</span> <span class="c1">#Hasil analitik harus bernilai int(bulat)</span>
+</code></pre></div>
+
+<p>Pertama, mengimport math untuk menginisialisasi nilai eksponen, dengan nama exp dan dengan nilai pangkat <script type="math/tex">1</script> yang ditampung dalam variable e. Lalu, membuat fungsi <script type="math/tex">f(x)</script> yang berisi persamaan <script type="math/tex">e^{x}</script>. Selanjutnya mencetak tulisan persamaan, yaitu persamaannya ialah : <script type="math/tex">e^{x}</script>. Variable hasil_analitik ialah hasil analitik yang telah dihitung sebelumnya, ialah <script type="math/tex">53,598150</script> atau dibulatkan menjadi <script type="math/tex">54</script>. Harus int atau bulat, karena akan dikurangi oleh hasil nilai integrasi dari metode trapesium sehingga menjadi nilai error yang diperoleh.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan nilai batas bawah : &quot;</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan nilai batas atas : &quot;</span><span class="p">))</span>
+
+<span class="n">iterasi_banyak</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Masukkan Banyak iterasi : &quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;iterasi&quot;</span><span class="p">,</span> <span class="s2">&quot;trapesium&quot;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s2">&quot;Error&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Kedua, variable a dan b dimana menampung nilai batas bawah dan nilai batas atas. Variable iterasi_banyak ialah menampung banyaknya user akan menginput iterasi yang diinginkan. Lalu mencetak tampilan agar lebih menarik sehingga data iterasi, nilai yang diperoleh dari metode trapesium dan error tertata dengan rapi. </p>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">iterasi</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">iterasi_banyak</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">iterasi</span>
+    <span class="n">h</span><span class="o">=</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
+</code></pre></div>
+
+<p>Ketiga, perulangan yang pertama ialah perulangan untuk iterasi di dalam jangkauan (1, iterasi_banyak). Maksud dari dalam jangkauan 1, iterasi_banyak ialah program akan mengeksekusi sebanyak apa program akan mengeksekusi untuk iterasi yang diinginkan, lalu banyaknya iterasi akan ditampung dalam variable n. variable h menampung rumus dari menghitung lebar dari setiap alas pada trapesium.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">#Metode Trapesium</span>
+    <span class="n">xi</span><span class="o">=</span><span class="n">a</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">xi</span><span class="o">=</span><span class="n">xi</span><span class="o">+</span><span class="n">h</span>
+        <span class="n">y</span><span class="o">+=</span><span class="n">fungsi</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
+    <span class="n">It</span><span class="o">=</span> <span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="o">*</span><span class="p">((</span><span class="n">fungsi</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">+</span><span class="n">fungsi</span><span class="p">(</span><span class="n">b</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">error</span><span class="o">=</span><span class="p">(</span><span class="n">hasil_analitik</span><span class="o">-</span><span class="n">It</span><span class="p">)</span><span class="o">/</span><span class="n">It</span> <span class="o">*</span> <span class="mi">100</span>
+</code></pre></div>
+
+<p>Keempat, variable xi berisi tentang nilai a atau nilai batas bawah dari fungsi. Variable y berisi tentang awalan. Di dalam perulangan kedua, berisi tentang untuk i di dalam jangkauan 1,n. Maksud dari untuk i di dalam jangkauan 1,n ialah program akan melakukan perulangan sebanyak n. lalu, variable xi, dimana nilai xi selalu bertambah sebanyak nilai h(setiap melakukan perulangan). Variable y, nilai variable y akan bertambah terus oleh nilai dari fungsi(xi). Selanjutnya, setelah selesai perulangan dalam Variable It menampung rumus metode trapesium, ialah : 
+<script type="math/tex; mode=display">
+I=\dfrac{\Delta x}{2}\left[ f\left( x_{0}\right) +2\sum ^{n-1}_{i=1}f\left( x_{i}\right)  \right]
+</script>
+Dan yang terakhir, variable error ialah menampung rumus untuk mencari nilai error menggunakan rumus :
+<script type="math/tex; mode=display">
+\varepsilon _{t}=\dfrac{Nilai Analitik-Nilai eksak(Nilai Pendekatan)}{Nilai analitik}\times 100\% 
+</script>
+</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">iterasi</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%.8f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">It</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%.8f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">error</span><span class="p">)</span> 
+</code></pre></div>
+
+<p>Kelima, yang terakhir ialah menampilkan hasil dari nilai iterasi, nilai Nilai eksak(Nilai Pendekatan) dan Nilai Error.</p>
+<h3 id="refrensi">Refrensi<a class="headerlink" href="#refrensi" title="Permanent link">&para;</a></h3>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>https://bookdown.org/moh_rosidi2610/Metode_Numerik/diffinteg.html&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref5:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref6:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref7:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref8:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref9:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref10:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref11:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Dr. Achmad Fahrurozi, S.Si, M.Si, Integral Numerik, Universitas Gunadarma&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref5:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref6:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref7:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref8:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref9:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref10:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref11:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref12:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref13:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref14:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref15:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+      
+        <a href="Solusi%20Numerik%20Pada%20Aljabar%20Linear/Pengertian/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Pengertian Aljabar Linear
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; 2019 peaceiris
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/peaceiris" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/piris314en" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.34eae1b6.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
